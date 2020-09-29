@@ -12,26 +12,13 @@
         <input class="form-control" type="text" id="search" name="search" placeholder="Digite o nome da Tarefa">
     </div>
     <ul class="task-list">
+        {% for task in tasks %}
         <li class="task-item">
-            <span>Titulo Tarefa</span>
+            <span ><a href="/task/{{task.id}}">{{ task.title }}</a></span>
             <button class="btn btn-danger">Deletar</button>
             <button class="btn btn-info">Editar</button>
         </li>
-        <li class="task-item">
-            <span>Titulo Tarefa</span>
-            <button class="btn btn-danger">Deletar</button>
-            <button class="btn btn-info">Editar</button>
-        </li>
-        <li class="task-item">
-            <span>Titulo Tarefa</span>
-            <button class="btn btn-danger">Deletar</button>
-            <button class="btn btn-info">Editar</button>
-        </li>
-        <li class="task-item">
-            <span>Titulo Tarefa</span>
-            <button class="btn btn-danger">Deletar</button>
-            <button class="btn btn-info">Editar</button>
-        </li>
+        {% endfor %}
     </ul>
 </div>
 {% endblock %}

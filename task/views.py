@@ -1,10 +1,7 @@
-from django.http import HttpResponse
 from django.shortcuts import render
-
-
-def hello(request):
-    return HttpResponse('Hello Word')
+from .models import Task
 
 
 def list(request):
-    return render(request, 'task/list.html')
+    tasks = Task.objects.all()
+    return render(request, 'task/list.html', {'tasks': tasks})
