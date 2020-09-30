@@ -24,3 +24,17 @@ def new(request):
     else:
         form = TaskForm()
     return render(request, 'task/new.html', {'form': form})
+
+
+def edit(request, id):
+    task = get_object_or_404(Task, pk=id)
+    form = TaskForm(instance=task)
+    if request.method == 'POST':
+        form = TaskForm(request.POST, instance=task)
+        if form.is_valid():
+            task.save()
+            return redirect('/')
+        else:
+            return render(request, 'task/edit.html', {'form': form, 'task': task})
+
+    return render(request, 'task/edit.html', {'form': form, 'task': task})
