@@ -5,9 +5,11 @@
 {% block content %}
 <div class="offset-1 col-10 list-div">
     <h1>Lista de Tarefas</h1>
-    <div class="col-2 add-div">
-        <i class="fas fa-plus"></i>Adicionar
-    </div>
+    <a href="{% url 'new' %}">
+        <div class="col-2 add-div">
+            <i class="fas fa-plus"></i>Adicionar
+        </div>
+    </a>
     <div class="col-9 search-div">
         <input class="form-control" type="text" id="search" name="search" placeholder="Digite o nome da Tarefa">
         <i class="fas fa-search"></i>
@@ -15,7 +17,7 @@
     <ul class="task-list">
         {% for task in tasks %}
         <li class="task-item">
-            <span ><a href="/task/{{task.id}}">{{ task.title }}</a></span>
+            <span ><a href="{% url 'detail' task.id %}">{{ task.title }}</a></span>
             <i class="fas fa-trash"></i>
             <i class="fas fa-edit"></i>
         </li>
