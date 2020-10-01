@@ -18,15 +18,23 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+              {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="#">Tarefas</a>
+                <a class="nav-link" href="/">Tarefas</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Usuários</a>
-              </li>
+              {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Usuários</a>
+                </li>
+              {% endif %}
               <li class="nav-item">
                 <a class="nav-link" href="#">Sobre Nós</a>
               </li>
+              {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Sair</a>
+                </li>
+              {% endif %}
             </ul>
           </div>
     </nav>
