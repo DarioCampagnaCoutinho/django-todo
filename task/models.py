@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
 
 class Task(models.Model):
@@ -6,6 +7,7 @@ class Task(models.Model):
         ('doing', 'Doing'),
         ('done', 'Done'),
     )
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     title = models.CharField(max_length=265)
     description = models.TextField()
     done = models.CharField(max_length=9, choices=STATUS,)
