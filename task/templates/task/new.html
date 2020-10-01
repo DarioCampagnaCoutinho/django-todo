@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <div class="offset-1 col-10 list-div">
     <h1>Salvar Tarefas</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form|crispy }}
         <input type="submit" class="btn btn-success" value="Criar Tarefa">
     </form>
 </div>
