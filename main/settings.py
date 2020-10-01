@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'about',
     'user',
     'task',
+    'accounts',
     #Libs
     'crispy_forms',
 ]
