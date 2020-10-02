@@ -4,19 +4,28 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Task
 from .forms import TaskForm
+import datetime
 
 
 @login_required
 def list(request):
     search = request.GET.get('search')
+    filter = request.GET.get('filter')
+    tasksDoneRecently = Task.objects.filter(done='done', user=request.user, updated__gt=datetime.datetime.now() - datetime.timedelta(days=30)).count()
+    taskDone = Task.objects.filter(done='done', user=request.user).count()
+    taskDoing = Task.objects.filter(done='doing', user=request.user).count()
     if search:
         tasks = Task.objects.filter(title__icontains=search, user=request.user)
+    elif filter:
+        tasks = Task.objects.filter(done=filter, user=request.user)
     else:
         tasks_list = Task.objects.all().order_by('-created').filter(user=request.user)
         paginator = Paginator(tasks_list, 3)
         page = request.GET.get('page')
         tasks = paginator.get_page(page)
-    return render(request, 'task/list.html', {'tasks': tasks})
+    return render(request, 'task/list.html',
+                  {'tasks': tasks, 'tasksDoneRecently': tasksDoneRecently,
+                   'taskDone': taskDone, 'taskDoing': taskDoing})
 
 
 @login_required

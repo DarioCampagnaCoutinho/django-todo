@@ -40,12 +40,54 @@
     list-style: none;
     font-size: 20px;
     height: 50px;
+    padding: 0 15px;
     padding-top: 10px;
     border-botton: 1px dashed #ccc;
 }
 
 .task-item.done{
     background-color: #CCC;
+}
+
+/* Dashboard */
+
+.dashboard{
+    padding: 0;
+    width: 100%;
+    display: block;
+}
+
+.dashboard h4 {
+    font-size: 20px;
+}
+
+.dashboard span {
+    font-size: 40px;
+    display: block;
+    width: 100%;
+}
+
+.dashboard-box{
+    float: left;
+    background-color: #DFDFDF;
+    color: #FFF;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 130px;
+    width: 32%;
+    text-align: center;
+}
+
+#dashboard-lasday{
+    background-color: #3476e2;
+}
+
+#dashboard-done{
+    background-color: #13c43f;
+}
+
+#dashboard-doing{
+    background-color: #db1e47;
 }
 
 /* Botão Adicionar */
@@ -109,6 +151,19 @@
     margin-top: 15px;
     margin-botton: 15px;
     display: inline-block;
+}
+
+/* Filter */
+
+.filter-div{
+    margin-botton: 15px;
+    padding: 0;
+}
+
+#filter{
+    display: inline-block;
+    width: 200px;
+    margin-left: 10px;
 }
 
 /* Rodapé */
