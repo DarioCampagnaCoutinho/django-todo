@@ -44,6 +44,10 @@
     border-botton: 1px dashed #ccc;
 }
 
+.task-item.done{
+    background-color: #CCC;
+}
+
 /* Botão Adicionar */
 
 #add-link{
@@ -67,7 +71,7 @@
 }
 
 /* Botôes */
-.fas.fa-trash, .fas.fa-edit {
+.fas.fa-trash, .fas.fa-edit, .fas.fa-check {
     cursor: pointer;
     margin: 5px;
     font-size: 20px;
@@ -80,6 +84,15 @@
 
 .fas.fa-edit{
     color: #13c43f;
+}
+
+.fas.fa-check{
+    color: #CCC;
+}
+
+
+.done .fas.fa-check{
+    color: #3476e2;
 }
 
 /* Buscas */
